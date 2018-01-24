@@ -1,0 +1,11 @@
+
+---
+
+- hosts: app
+  gather_facts: no
+  tasks:
+    - name: checking the all running root process
+      shell: ps auc | grep -i "root"
+      register: op
+    - debug: var=op.stdout_lines
+
